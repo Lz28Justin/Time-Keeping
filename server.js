@@ -6,10 +6,6 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const path = require("path");
 
-// FIX: node-fetch compatibility (Node 18+ safe)
-const fetch = (...args) =>
-  import("node-fetch").then(({ default: fetch }) => fetch(...args));
-
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -216,3 +212,4 @@ app.post("/webhook", async (req, res) => {
 app.listen(PORT, () => {
   console.log(`✅ Timekeeping System running on port ${PORT}`);
 });
+
